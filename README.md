@@ -5,6 +5,7 @@
 * Webpack 1.15.0
 * Babel
 * React hot loader
+* Jest for tests and Chai for assertions
 
 ## Dependencies:
 
@@ -20,6 +21,8 @@
 ## Scripts
 
 - `npm start`: Starts the application on development mode
+- `npm test`: Run tests once
+- `npm run test:watch`: Run tests in watch mode
 
 ## License
 
