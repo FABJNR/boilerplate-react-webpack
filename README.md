@@ -5,6 +5,7 @@
 * Webpack 1.15.0
 * Babel
 * React hot loader
+* HTML and CSS generated automatically by webpack
 * Jest for tests and Chai for assertions
 * Storybook to create isolatelly components' stories
 
