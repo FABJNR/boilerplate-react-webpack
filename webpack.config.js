@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const validate = require('webpack-validator')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const DashboardPlugin = require('webpack-dashboard/plugin')
 
 module.exports = validate({
   devtool: 'source-map',
@@ -21,6 +22,7 @@ module.exports = validate({
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
+    new DashboardPlugin(),
     new ExtractTextPlugin('[name]-[hash].css'),
     new HtmlPlugin({
       title: 'Boilerplate React + Webpack',
@@ -44,7 +46,7 @@ module.exports = validate({
       test: /\.css$/,
       exclude: /node_modules/,
       include: /src/,
-      loader: ['style', 'css']
+      loaders: ['style', 'css']
     }]
   }
 })
