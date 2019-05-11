@@ -3,8 +3,8 @@
     "start": "webpack-dashboard -- node server.js",
     "test": "jest --coverage",
     "test:watch": "npm test -- --watch",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006 -c storybook",
+    "build-storybook": "build-storybook -c storybook",
     "build": "cross-env NODE_ENV=production webpack --progress --config webpack.prod.config -p"
   },
   "devDependencies": {
