@@ -21,6 +21,14 @@
 - Run `npm start` to develop on `http://localhost:3000`
 - Run `npm run build` for production build (files will be generated on `dist` directory)
 
+## Troubleshooting
+
+If you are on Windows, and try to run `yarn lint`, you'll get an error
+because `spawn` module does not work very well on Windows.
+
+You should install `cross-spawn`, and edit `gulpfile.js`, removing line `4` and
+uncomment line `7`.
+
 ## Scripts
 
 - `npm start`: Starts the application on development mode
