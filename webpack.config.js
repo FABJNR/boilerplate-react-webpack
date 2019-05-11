@@ -26,7 +26,7 @@ module.exports = validate({
     new ExtractTextPlugin('[name]-[hash].css'),
     new HtmlPlugin({
       title: 'Boilerplate React + Webpack',
-      template: path.join(__dirname, 'src', 'html', 'template.html')
+      template: path.join(__dirname, 'src', 'html', 'template-dev.html')
     })
   ],
   module: {
@@ -48,5 +48,11 @@ module.exports = validate({
       include: /src/,
       loaders: ['style', 'css']
     }]
+  },
+  resolve: {
+    alias: {
+      src: path.join(__dirname, 'src'),
+      components: path.join(__dirname, 'src', 'components')
+    }
   }
 })

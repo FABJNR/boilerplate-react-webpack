@@ -5,6 +5,8 @@ const webpack = require('webpack')
 const validate = require('webpack-validator')
 const HtmlPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const crp = new ExtractTextPlugin('crp.css')
+const styles = new ExtractTextPlugin('[name]-[hash].css')
 
 module.exports = validate({
   entry: path.join(__dirname, 'src', 'index'),
@@ -13,7 +15,8 @@ module.exports = validate({
     filename: '[name]-[hash].js'
   },
   plugins: [
-    new ExtractTextPlugin('[name]-[hash].css'),
+    crp,
+    styles,
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': '"production"'
@@ -26,6 +29,7 @@ module.exports = validate({
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlPlugin({
       title: 'Boilerplate React + Webpack',
+      inject: false,
       template: path.join(__dirname, 'src', 'html', 'template.html')
     })
   ],
@@ -41,12 +45,22 @@ module.exports = validate({
       exclude: /node_modules/,
       include: /src/,
       loader: 'babel'
-    },
-    {
+    }, {
       test: /\.css$/,
+      exclude: /node_modules|(style)\.css/,
+      include: /src/,
+      loader: styles.extract('style', 'css')
+    }, {
+      test: /(style)\.css$/,
       exclude: /node_modules/,
       include: /src/,
-      loader: ExtractTextPlugin.extract('style', 'css')
+      loader: crp.extract('style', 'css')
     }]
+  },
+  resolve: {
+    alias: {
+      src: path.join(__dirname, 'src'),
+      components: path.join(__dirname, 'src', 'components')
+    }
   }
 })
