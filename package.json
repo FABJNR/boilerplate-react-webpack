@@ -8,7 +8,7 @@
     "lint:fix": "standard --fix",
     "storybook": "start-storybook -p 6006 -c storybook",
     "build-storybook": "build-storybook -c storybook",
-    "build": "cross-env NODE_ENV=production webpack --progress --config webpack.prod.config -p"
+    "build": "cross-env NODE_ENV=production webpack --progress --config webpack/prod.config -p"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
