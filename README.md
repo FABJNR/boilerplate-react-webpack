@@ -2,7 +2,7 @@
 
 ## What's inside it?
 
-* Webpack 1.15.0
+* Webpack 4.32.2
 * Babel
 * React hot loader
 * HTML and CSS generated automatically by webpack
@@ -13,6 +13,7 @@
 
 - Node.js `>=` v10.13.0;
 - npm `>=` v6.4.1;
+- Yarn `>=` v1.16.0;
 
 ## Up and running
 
@@ -31,11 +32,13 @@ uncomment line `7`.
 
 ## Scripts
 
-- `npm start`: Starts the application on development mode
-- `npm test`: Run tests once
-- `npm run test:watch`: Run tests in watch 
-- `npm run storybook`: Run Storybook on 6006 port
-- `npm run build`: Build project to production
+- `yarn start (or npm start)`: Starts the application on development mode
+- `yarn test (or npm test)`: Run tests once
+- `yarn test:watch (or npm run test:watch)`: Run tests in watch 
+- `yarn storybook (or npm run storybook)`: Run Storybook on 6006 port
+- `yarn storybook:build (or npm run storybook:build)`: Build Storybook to static files
+- `yarn build (or npm run build)`: Build project to production
+- `yarn update-packages`: Update project dependencies
 
 ## License
 
