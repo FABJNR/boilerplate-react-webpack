@@ -18,9 +18,9 @@
 ## Up and running
 
 - Clone this repository: `git clone https://github.com/FABJNR/boilerplate-react-webpack.git`;
-- Install dependencies: `npm install`;
-- Run `npm start` to develop on `http://localhost:3000`
-- Run `npm run build` for production build (files will be generated on `dist` directory)
+- Install dependencies: `yarn install (or npm install)`;
+- Run `yarn start (or npm start)` to develop on `http://localhost:3000`
+- Run `yarn build (or npm run build)` for production build (files will be generated on `dist` directory)
 
 ## Troubleshooting
 
