@@ -7,7 +7,8 @@
 * React hot loader
 * HTML and CSS generated automatically by webpack
 * Jest for tests and Chai for assertions
-* Storybook to create isolatelly components' stories
+* Storybook to create isolated components stories
+* Async/await
 
 ## Dependencies:
 
