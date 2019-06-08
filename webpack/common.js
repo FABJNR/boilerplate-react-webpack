@@ -1,40 +1,75 @@
 'use strict'
 
-const path = require('path')
+const { join } = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const paths = {
+  root: join(__dirname, '..'),
+  src: join(__dirname, '..', 'src'),
+  dist: join(__dirname, '..', 'dist')
+}
 
 module.exports = {
-  entry: path.join(__dirname, '..', 'src', 'index'),
+  paths,
+  entry: join(paths.src, 'index'),
   output: {
-    path: path.join(__dirname, '..', 'dist'),
-    filename: '[name]-[hash].js'
+    path: paths.dist,
+    filename: '[name]-[chunkhash].js'
   },
   htmlPluginConfig: (template) => ({
     title: 'Boilerplate React + Webpack',
-    template: path.join(__dirname, '..', 'src', 'html', template)
+    template: join(paths.src, 'html', template)
   }),
   standardPreLoader: {
     test: /\.js$/,
+    enforce: 'pre',
     exclude: /node_modules/,
-    include: /src/,
-    loader: 'standard'
+    include: paths.src,
+    use: {
+      loader: 'standard-loader',
+      options: {
+        parser: 'babel-eslint'
+      }
+    }
   },
   jsLoader: {
     test: /\.js$/,
     exclude: /node_modules/,
-    include: /src/,
-    loader: 'babel'
+    include: paths.src,
+    use: 'babel-loader'
   },
   cssLoader: {
     test: /\.css$/,
     exclude: /node_modules/,
-    include: /src/,
-    loaders: ['style', 'css']
+    include: paths.src,
+    use: [MiniCssExtractPlugin.loader, 'css-loader']
+  },
+  fileLoader: {
+    test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|txt)(\?.*)?$/,
+    include: paths.src,
+    use: {
+      loader: 'file-loader',
+      options: {
+        name: 'media/[name].[hash:8].[ext]'
+      }
+    }
+  },
+  urlLoader: {
+    test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+    include: paths.src,
+    use: {
+      loader: 'url-loader',
+      options: {
+        limit: 10000,
+        name: 'media/[name].[hash:8].[ext]'
+      }
+    }
   },
   resolve: {
     alias: {
-      src: path.join(__dirname, '..', 'src'),
-      components: path.join(__dirname, '..', 'src', 'components'),
-      utils: path.join(__dirname, '..', 'src', 'utils')
+      src: paths.src,
+      components: join(paths.src, 'components'),
+      utils: join(paths.src, 'utils')
     }
   }
 }
