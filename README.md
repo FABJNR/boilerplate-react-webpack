@@ -9,6 +9,7 @@
 * Jest for tests and Chai for assertions
 * Storybook to create isolated components stories
 * Async/await
+* Dynamic import() function
 
 ## Dependencies:
 

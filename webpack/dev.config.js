@@ -13,6 +13,7 @@ module.exports = {
     common.entry
   ],
   output: Object.assign({}, common.output, {
+    filename: '[name].js',
     publicPath: ''
   }),
   plugins: [

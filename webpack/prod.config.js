@@ -22,6 +22,17 @@ module.exports = {
     }),
     new HtmlPlugin(common.htmlPluginConfig('template.html'))
   ],
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react-build',
+          chunks: 'all'
+        }
+      }
+    }
+  },
   module: {
     rules: [
       common.standardPreLoader,

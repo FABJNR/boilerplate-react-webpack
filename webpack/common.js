@@ -14,7 +14,7 @@ module.exports = {
   entry: join(paths.src, 'index'),
   output: {
     path: paths.dist,
-    filename: '[name]-[hash].js'
+    filename: '[name]-[chunkhash].js'
   },
   htmlPluginConfig: (template) => ({
     title: 'Boilerplate React + Webpack',

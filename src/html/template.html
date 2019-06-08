@@ -8,10 +8,5 @@
 </head>
 <body>
   <div data-js="app"></div>
-  <% htmlWebpackPlugin.files.css.forEach((cssFile) => { %>
-  <% if (cssFile !== 'crp.css') { %>
-  <link rel="stylesheet" href="<%= cssFile %>">
-  <% } %>
-  <% }) %>
 </body>
 </html>
