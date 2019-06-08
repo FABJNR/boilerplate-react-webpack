@@ -25,7 +25,9 @@ module.exports = {
     rules: [
       common.standardPreLoader,
       common.jsLoader,
-      common.cssLoader
+      common.cssLoader,
+      common.fileLoader,
+      common.urlLoader
     ]
   },
   devServer: {
