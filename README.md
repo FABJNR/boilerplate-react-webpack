@@ -2,20 +2,22 @@
 
 ## What's inside it?
 
-* Webpack 4.32.2
+* Webpack 4+
 * Babel
 * React hot loader
 * HTML and CSS generated automatically by webpack
 * Jest for tests and Chai for assertions
 * Storybook to create isolated components stories
 * Async/await
-* Dynamic import() function
+* Dynamic `import()` function
+* Webpack tree shaking!
+* [Preact](https://preactjs.com/) for production build (optional)
 
 ## Dependencies:
 
 - Node.js `>=` v10.13.0;
 - npm `>=` v6.4.1;
-- Yarn `>=` v1.16.0;
+- Yarn `>=` v1.17.3;
 
 ## Up and running
 
@@ -34,12 +36,14 @@ uncomment line `7`.
 
 ## Scripts
 
-- `yarn start (or npm start)`: Starts the application on development mode
+- `yarn dev (or npm run dev)`: Starts the application on development 
+- `yarn start (or npm start)`: Special script reserved to run production code
 - `yarn test (or npm test)`: Run tests once
 - `yarn test:watch (or npm run test:watch)`: Run tests in watch 
 - `yarn storybook (or npm run storybook)`: Run Storybook on 6006 port
 - `yarn storybook:build (or npm run storybook:build)`: Build Storybook to static files
 - `yarn build (or npm run build)`: Build project to production
+- `yarn build:analyzer (or npm run build:analyzer)`: Build project to production and open bundle analyzer on 8888 port
 - `yarn update-packages`: Update project dependencies
 
 ## License

@@ -11,7 +11,9 @@ const paths = {
 
 module.exports = {
   paths,
-  entry: join(paths.src, 'index'),
+  entry: {
+    main: join(paths.src, 'index')
+  },
   output: {
     path: paths.dist,
     filename: '[name]-[chunkhash].js'
@@ -64,6 +66,9 @@ module.exports = {
         name: 'media/[name].[hash:8].[ext]'
       }
     }
+  },
+  module: {
+    noParse: /\.min\.js$/
   },
   resolve: {
     alias: {

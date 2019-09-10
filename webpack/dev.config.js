@@ -10,7 +10,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   entry: [
-    common.entry
+    common.entry.main
   ],
   output: Object.assign({}, common.output, {
     filename: '[name].js',
@@ -22,6 +22,7 @@ module.exports = {
     new HtmlPlugin(common.htmlPluginConfig('template-dev.html'))
   ],
   module: {
+    noParse: common.module.noParse,
     rules: [
       common.standardPreLoader,
       common.jsLoader,
